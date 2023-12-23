@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>msdjkcnod</h1>
+    <div id="container">
+          <input type="text" placeholder="enterr your email" name="email" id="email">
+          <input type="password" placeholder="password" id="password">
+          <button onclick="check()">submit</button>
+        
+    </div>
+    
+</body>
+<script>
+// arr=[
+// {
+//     name:"Deep Raj Singh",
+//     email:"deeprajsinngh8823@gmail.com",
+//     password:1238978238
+
+// },
+
+// {
+//     name:"Deep Raj Singh",
+//     email:"deeprajsinngh8823@gmail.com",
+//     password:1238978238
+
+// },
+// {
+//     name:'Antika Maurya',
+//     email:'antikamaurya322182@gmail.com',
+//     password:1234
+// }
+
+//]
+
+savedata=JSON.parse(localStorage.getItem("arrData"))
+console.log(savedata)
+
+ function check(){
+   
+    var inputemail=document.getElementById("email").value
+    var inputpassword=document.getElementById("password").value;
+    str=""
+    arr.forEach((e)=>{
+        if(e.email==inputemail && e.password==inputpassword){
+           str="login Successfull !"
+            alert(str)
+        }
+
+   })
+   
+
+  
+   
+ }
+
+
+</script>
+</html>

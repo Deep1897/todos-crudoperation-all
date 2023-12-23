@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          #navbar{
+            width: 100%;
+            height: 40px;
+            display: flex;
+            justify-content: space-around;
+        }
+        table{
+            margin: auto;
+            margin-top: 80px;
+            border-collapse: collapse;
+            width: 80%;
+            font-size: 20px;
+        }
+        th,td{
+            border: 1px solid black;
+            text-align: center;
+            padding: 10px;
+        }
+        th{
+            background-color: #4caf50;
+        }
+        td{
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="navbar"> <a href="index.html"><button>Register</button></a>
+        <a href="login.html"><button>Login</button></a>
+        <a href="information.html"><button>GetAllData</button></a>
+
+    </div>
+<table id="tab">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Address</th>
+        <th>Action</th>
+    
+    </tr>
+   
+</table>
+    
+</body>
+<script>
+    // let allData=JSON.parse(localStorage.getItem("dataRegister"));
+    // console.log(allData);
+    // let tab=document.getElementById("tab");
+    
+    // allData.map((e)=>{
+    //     let newrow=tab.insertRow(tab.rows.length);
+    //     newrow.insertCell(0).innerHTML=e.name;
+    //     newrow.insertCell(1).innerHTML=e.email;
+    //     newrow.insertCell(2).innerHTML=e.password;
+    //     newrow.insertCell(3).innerHTML=e.address;
+    //     newrow.insertCell(4).innerHTML='<button onclick="editData(this)" >Edit</button>'+
+    //     '<button onclick="removeBooks() " >delete</button>'
+
+    // })
+
+
+    // function deleteData(button,e){
+    //     localStorage.removeItem(e)
+    //     let row=button.parentNode.parentNode;
+    //     row.parentNode.removeChild(row);
+        
+    // }
+
+//     function removeBooks() {
+//   const data = JSON.parse(localStorage.getItem('dataRegister'))
+//   for (var index = 0; index < data.length; index++) {
+//     data.splice(index, 1);
+//   }
+//   localStorage.setItem('dataRegister', JSON.stringify(allData))
+// }
+
+
+
+let allData=JSON.parse(localStorage.getItem("dataRegister"));
+    console.log(allData);
+    let tab=document.getElementById("tab");
+
+    allData.map((e,index)=>{
+
+        var tr1=document.createElement("tr")
+
+        var td1=document.createElement("td")
+        var td2=document.createElement("td")
+        var td3=document.createElement("td")
+        var td4=document.createElement("td")
+        var td5=document.createElement("td")
+
+        td1.innerHTML=e.name;
+        td2.innerHTML=e.email;
+        td3.innerHTML=e.password;
+        td4.innerHTML=e.address;
+
+        var edit= document.createElement("button")
+        edit.innerHTML="edit"
+        edit.addEventListener("click",function(){
+            myedit(e,index)
+        })
+        var delete1=document.createElement("button");
+        delete1.innerHTML="delete"
+        delete1.addEventListener("click",function(){
+           myfun(e,index)
+          
+          
+        });
+        td5.append(edit,delete1)
+        tr1.append(td1,td2,td3,td4,td5) 
+        tab.append(tr1)
+
+
+
+
+
+    })
+
+    function myfun(e,index){
+      console.log(e,index)
+      allData.splice(index,1)
+      localStorage.setItem("dataRegister",JSON.stringify(allData))
+      window.location.reload()
+    }
+
+    function  myedit(e,index){
+        let uname=prompt("Enter the updated name")
+        let umail=prompt("Enter the updated name")
+        let upassword=prompt("Enter the updated name")
+        let uaddress=prompt("Enter the updated name")
+        
+        console.log(e.name,index,allData)
+        allData.forEach((ele)=>{
+            if(ele.name==e.name && ele.email==e.email )
+            {
+                ele.name=uname;
+                ele.email=umail;
+                ele.password=uname;
+                ele.address=uaddress;
+            }
+
+        })
+        localStorage.setItem("dataRegister",JSON.stringify(allData))
+        window.location.reload()
+    }
+
+
+</script>
+</html>

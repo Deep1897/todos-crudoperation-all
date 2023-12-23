@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <input type="text" placeholder="enterr your name" name="name" id="name">
+        <input type="text" placeholder="enterr your email" name="email" id="email">
+        <input type="password" placeholder="password" id="password">
+        <button onclick="addData()">submit</button>
+      
+  </div>
+</body>
+<script> 
+
+arr=[]
+
+
+
+
+function addData(){
+      var name1=document.getElementById("name").value;
+      var email1=document.getElementById("email").value;
+      var password1=document.getElementById("password").value;
+     
+
+    obj={
+        name:name1,
+        email:email1,
+        Password:password1
+    }
+
+    arr.push(obj)
+
+    console.log(arr)
+    
+
+    localStorage.setItem("arrData",JSON.stringify(arr))
+   
+}
+
+
+
+
+
+
+</script>
+</html>

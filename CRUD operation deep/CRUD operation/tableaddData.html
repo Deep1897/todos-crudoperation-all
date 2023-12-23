@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 25%;
+            height: 250px;
+            margin: auto;
+            margin-top: 100px;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            /* background: -moz-radial-gradient(rgb(195, 203, 132)); */
+            /* background-color: rgb(223, 209, 236); */
+            /* background-image: linear-gradient(rgb(14 153 131 / 88%), rgb(3 3 74 / 87%)); */
+            /* background-image: linear-gradient(rgba(255, 2, 2, 0.226), rgba(0, 12, 184, 0.274)); */
+            background-image: linear-gradient(rgba(255, 2, 2, 0.226), rgba(0, 12, 184, 0.274));
+
+        }
+        input{
+            margin-left: 30px;
+            height: 40px;
+            border: 1px solid gray;
+            margin-top: 10px;
+        }
+        #addbtn{
+            margin: auto;
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            background-color: blue;
+            color: aliceblue;
+            border: 0px;
+            width: 120px;
+            height: 30px;
+            align-items: center;
+            border-radius: 5px;
+
+        }
+        #addbtn:hover{
+            background-color: rgb(89, 89, 233);
+
+        }
+        #Tablecont{
+            
+            height: auto;
+            width: 50%;
+            margin: auto;
+            border-radius: 8px;
+            margin-top: 50px;
+            
+
+        }
+        #tablechile{
+            display: flex;
+            width: 100%;
+            height: 30px;
+            border: 1px solid black;
+           
+            border-radius: 8px;
+            margin-top: 10px;
+            justify-content: space-around;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form >
+    <label for="name">User Name:</label>
+    <input style="margin-left:23px;" id="name" type="text" placeholder="Enter your name " name="Name"><br>
+    <label for="email">Email:</label>            
+    <input style="margin-left: 55px;" id="email" type="text" placeholder="Enter your Email " name="email"><br>
+    <label for="password">Password:</label>
+    <input id="password" type="text" placeholder="Enter your password" name="password"><br>
+    
+        </form>
+
+        <button onclick="addAll()" id="addbtn">submit</button>
+    
+    </div>
+    <div id="Tablecont">
+
+        
+
+
+    </div>
+</body>
+<script>
+    arr=[]
+    const addAll=()=>{
+
+        
+       
+        var name=document.getElementById("name").value;
+        var email=document.getElementById("email").value;
+        var password=document.getElementById("password").value;
+        
+        arr.push(name)
+        arr.push(email)
+        arr.push(password)
+        console.log(arr)
+
+       var div1 =document.createElement("div")
+       var div2 =document.createElement("div")
+       var div3 =document.createElement("div")
+
+      
+           
+
+        var hname=document.createElement("h1").innerHTML=name;
+        var hemail=document.createElement("h1").innerHTML=email;
+        var hpassword=document.createElement("h1").innerHTML=password;
+
+        div1.append(hname)
+        div2.append(hemail)
+        div3.append(hpassword)
+
+
+
+
+        var tablechild =document.createElement("div");
+        tablechild.setAttribute("id","tablechile")
+
+        tablechild.append(div1,div2,div3)
+
+       var Tablecont = document.getElementById("Tablecont")
+
+       Tablecont.append(tablechild)
+
+
+
+
+
+    }
+</script>
+</html>
